@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://phone-d47.pages.dev/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- 标准移动端适配强制开启 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>车主挪车联系</title>
+<style>
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+/* 流体根字体：屏幕越小字体越小，大屏封顶16px */
+html {
+  font-size: clamp(13px, 3.4vw, 16px);
+}
+body {
+  background: linear-gradient(135deg, #165DFF, #0F48CC);
+  min-height: 100vh;
+  /* 避开手机刘海、底部小黑条安全区域 */
+  padding: env(safe-area-inset-top, 1rem) 1rem env(safe-area-inset-bottom, 1rem) 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* 主容器：自适应宽度，最大440px防止大屏过宽 */
+.main-box {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: clamp(14px, 3vw, 22px);
+  padding: clamp(1.5rem, 6vw, 2.5rem) clamp(1rem, 4vw, 1.8rem);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+}
+/* 汽车图标流体尺寸 */
+.car-icon {
+  text-align: center;
+  font-size: clamp(44px, 13vw, 70px);
+  margin-bottom: clamp(0.8rem, 2vw, 1.4rem);
+}
+h1 {
+  text-align: center;
+  font-size: clamp(1.3rem, 4.5vw, 1.6rem);
+  font-weight: 600;
+  color: #1D2129;
+  margin-bottom: 0.5rem;
+}
+.desc-text {
+  text-align: center;
+  font-size: clamp(0.8rem, 2.8vw, 0.9rem);
+  color: #6E7681;
+  line-height: 1.6;
+  margin-bottom: clamp(1.5rem, 5vw, 2.2rem);
+}
+/* 号码盒子 */
+.phone-wrap {
+  background-color: #F2F3F5;
+  border-radius: clamp(10px, 3vw, 14px);
+  padding: clamp(1rem, 4vw, 1.6rem);
+  text-align: center;
+  margin-bottom: clamp(1.2rem, 4vw, 1.8rem);
+}
+/* 脱敏展示手机号，小屏自动缩小防止溢出 */
+.phone-hide {
+  font-size: clamp(1.4rem, 7vw, 2rem);
+  font-weight: 700;
+  color: #165DFF;
+  letter-spacing: 1px;
+  word-break: break-all;
+}
+/* 按钮组自适应间距 */
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 2vw, 1rem);
+}
+/* 统一按钮样式，最小触摸高度48px */
+.btn {
+  width: 100%;
+  min-height: 48px;
+  padding: clamp(0.9rem, 3vw, 1.2rem) 0;
+  border-radius: clamp(10px, 3vw, 14px);
+  text-align: center;
+  font-size: clamp(1rem, 3.5vw, 1.15rem);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn:active {
+  opacity: 0.9;
+}
+.btn-call {
+  background: #165DFF;
+  color: #fff;
+}
+.btn-sms {
+  background: #00B42A;
+  color: #fff;
+}
+.btn-copy {
+  background: #F2F3F5;
+  color: #1D2129;
+}
+/* 微信提示文字 */
+.wx-tips {
+  margin-top: clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+  color: #86909C;
+  text-align: center;
+  line-height: 1.7;
+}
+/* 底部版权 */
+.footer-text {
+  margin-top: clamp(1.5rem, 5vw, 2.2rem);
+  text-align: center;
+  font-size: clamp(0.65rem, 2vw, 0.75rem);
+  color: rgba(255, 255, 255, 0.7);
+}
+/* 超小手机 <340px 兜底压缩字号 */
+@media screen and (max-width: 340px) {
+  .phone-hide {
+    font-size: 1.2rem;
+    letter-spacing: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div class="main-box">
+  <div class="car-icon">🚗</div>
+  <h1>联系车主挪车</h1>
+  <p class="desc-text">车辆挡路可电话或短信通知，感谢配合</p>
+
+  <div class="phone-wrap">
+    <!-- 脱敏展示，隐藏中间4位 -->
+    <div class="phone-hide">175****8000</div>
+  </div>
+
+  <div class="btn-group">
+    <!-- 拨号链接内置完整号码 -->
+    <a href="tel:17516298000" class="btn btn-call">📞 一键拨打车主电话</a>
+    <!-- 短信预填挪车话术 -->
+    <a href="sms:17516298000?body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%82%A8%E7%9A%84%E8%BD%A6%E8%BE%86%E6%8C%A1%E4%BD%8F%E9%80%9A%E9%81%93%E9%BA%BB%E7%83%A6%E6%8C%AA%E4%B8%80%E4%B8%8B%E8%BD%A6%EF%BC%8C%E8%B0%A2%E8%B0%A2%EF%BC%81" class="btn btn-sms">✉️ 一键发送挪车短信</a>
+    <!-- 复制完整号码 -->
+    <button class="btn btn-copy" id="copyBtn">📋 复制完整手机号</button>
+  </div>
+
+  <p class="wx-tips">
+    ⚠️ 微信内无法直接唤起电话/短信<br>
+    复制号码后点右上角「...」选择在浏览器打开
+  </p>
+</div>
+
+<div class="footer-text">静态挪车联系码 · 隐私保护</div>
+
+<script>
+// 仅需修改此处真实手机号，页面展示、拨号、短信、复制自动同步
+const fullPhone = "17516298000";
+const copyBtn = document.getElementById("copyBtn");
+
+copyBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(fullPhone);
+    alert(`已复制完整手机号：${fullPhone}`);
+  } catch (err) {
+    alert(`复制失败，请手动记录号码：${fullPhone}`);
+  }
+});
+</script>
+
+</body></html>
